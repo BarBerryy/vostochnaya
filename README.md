@@ -17,8 +17,27 @@ npm run dev
 npm run build
 ```
 
-Готовый сайт появится в папке `dist/`. Её содержимое можно выложить на любой хостинг
-или открыть `dist/index.html` двойным кликом.
+Готовый сайт появится в папке `dist/`. Сборка включает пререндер раздела «О нас»
+(`scripts/prerender.mjs`), чтобы поисковики видели текст без JavaScript.
+
+## Публикация
+
+Сайт живёт на GitHub Pages: https://vostochnayaenergya.ru
+
+Публикация автоматическая. После правок выполните:
+
+```bash
+git add -A
+git commit -m "Что изменилось"
+git push
+```
+
+GitHub Actions соберёт проект и выложит его за 1–2 минуты. Ход сборки видно на
+https://github.com/BarBerryy/vostochnaya/actions
+
+DNS домена обслуживается в Vercel (панель vercel.com → Domains → vostochnayaenergya.ru),
+записи A/AAAA/www указывают на GitHub Pages. Старый адрес vostochnaya.vercel.app
+перенаправляет на основной домен.
 
 ## Где что менять
 
