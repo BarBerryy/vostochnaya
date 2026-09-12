@@ -1,0 +1,48 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.vostochnayaenergya.ru"
+        }
+      ],
+      "destination": "https://vostochnayaenergya.ru/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "vostochnaya.vercel.app"
+        }
+      ],
+      "destination": "https://vostochnayaenergya.ru/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.vostochnayaenergya.ru"
+        }
+      ],
+      "destination": "https://vostochnayaenergya.ru/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "vostochnaya.vercel.app"
+        }
+      ],
+      "destination": "https://vostochnayaenergya.ru/:path*",
+      "permanent": true
+    }
+  ]
+}

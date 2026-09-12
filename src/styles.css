@@ -1,0 +1,407 @@
+/*
+  Основной шрифт — Optima. Он берётся из системы, если установлен.
+  Чтобы шрифт показывался у всех посетителей (и с кириллицей), положите
+  лицензионные файлы в public/fonts/ и раскомментируйте блок ниже.
+  Пока Optima недоступен, используется похожий Alegreya Sans (Google Fonts).
+*/
+/*
+@font-face {
+  font-family: "Optima Web";
+  src: url("/fonts/Optima-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Optima Web";
+  src: url("/fonts/Optima-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+*/
+
+:root {
+  --blue: #01afd2;
+  --ink: #111;
+  --paper: #fff;
+  --optima: "Optima Web", "Optima Nova", Optima, "Alegreya Sans", Candara, "Segoe UI", sans-serif;
+  --serif: var(--optima);
+  --sans: var(--optima);
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.35;
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+
+/* ---------- Шапка ---------- */
+.site-header {
+  padding: 34px 48px 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--sans);
+  font-size: 15px;
+  letter-spacing: .01em;
+}
+
+.nav a {
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color .15s;
+  white-space: nowrap;
+}
+
+.nav a:hover { border-bottom-color: #bbb; }
+.nav a.active { border-bottom-color: var(--ink); }
+
+/* ---------- Общее ---------- */
+main {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px 120px;
+}
+
+/* ---------- О НАС ---------- */
+#view-about { padding-top: 110px; position: relative; }
+
+.about-text { max-width: 560px; }
+
+.about-title {
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+  padding-bottom: 14px;
+  border-bottom: 3px solid var(--ink);
+}
+
+.about-text .about-lead {
+  margin: 32px 0 20px;
+  font-size: 16px;
+}
+
+.about-text p {
+  margin: 0;
+  text-align: justify;
+  font-size: 16px;
+  line-height: 1.45;
+  hyphens: auto;
+}
+
+.about-text p.gap { margin-top: 20px; }
+
+.about-text .motto {
+  margin-top: 28px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.about-text .since {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ink);
+  text-align: left;
+}
+
+/* Логотип: как в макете, уходит за правый край экрана */
+.logo {
+  position: absolute;
+  top: 70px;
+  right: -170px;
+  width: 340px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.logo img { display: block; width: 100%; height: auto; }
+
+@media (min-width: 1100px) {
+  .logo { right: calc(-1 * (100vw - 1100px) / 2 - 48px - 150px); }
+}
+
+/* ---------- СОЦИАЛЬНЫЕ СЕТИ ---------- */
+#view-social {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px);
+  padding-top: 26vh;
+  padding-bottom: 14vh;
+}
+
+.social-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 32px;
+}
+
+.social-links a {
+  display: block;
+  width: 316px;
+  max-width: 100%;
+  border: 3px solid var(--ink);
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  transition: background .15s, color .15s;
+}
+
+.social-links a:hover { background: var(--ink); color: #fff; }
+
+.social-contact {
+  margin: auto 0 0 22%;
+  padding-top: 14px;
+  border-top: 3px solid var(--ink);
+  text-align: right;
+  font-family: var(--sans);
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.social-contact a { text-decoration: none; }
+.social-contact a:hover { text-decoration: underline; }
+
+/* ---------- ЖУРНАЛЫ / ГАЗЕТЫ ---------- */
+#view-magazines { padding-top: 70px; }
+
+.issue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 56px 40px;
+}
+
+.issue-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.issue-card .tile {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #000;
+  overflow: hidden;
+  outline: 0 solid var(--blue);
+  transition: outline-width .15s;
+}
+
+.issue-card:hover .tile { outline-width: 4px; }
+
+.issue-card .tile img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform .3s;
+}
+
+.issue-card:hover .tile img { transform: scale(1.03); }
+
+.issue-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 14px 0 0;
+  line-height: 1.2;
+}
+
+.issue-card .meta {
+  margin: 6px 0 0;
+  font-size: 15px;
+}
+
+.sold-out { color: #777; text-transform: uppercase; letter-spacing: .04em; }
+
+/* --- Покупка товаров --- */
+.purchase-info {
+  max-width: 640px;
+  margin-top: 110px;
+  padding-top: 40px;
+  border-top: 1px solid var(--ink);
+}
+
+.purchase-info .desc {
+  margin: 0 0 18px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.purchase-info p.gap {
+  margin: 0 0 14px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.purchase-info .seller { margin-top: 26px; }
+
+.purchase-info a { text-decoration: none; color: var(--blue); }
+.purchase-info a:hover { text-decoration: underline; }
+
+/* --- Страница выпуска --- */
+.back {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 13px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-bottom: 26px;
+  color: #555;
+}
+.back:hover { color: var(--ink); }
+
+.issue-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.issue-hero { background: #000; }
+
+.issue-hero .main-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.issue-body .issue-title {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--ink);
+  line-height: 1.2;
+}
+
+.issue-body .desc {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.35;
+}
+
+.issue-body .price,
+.issue-body .buy,
+.issue-body .status {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 30px 0 0;
+  line-height: 1.1;
+}
+
+.issue-body .status { color: #777; text-transform: uppercase; letter-spacing: .04em; }
+
+.issue-body .buy a { text-decoration: none; color: var(--blue); }
+.issue-body .buy a:hover { text-decoration: underline; }
+
+.spreads-title {
+  margin: 48px 0 0;
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.spreads {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.spreads a {
+  display: block;
+  background: #000;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  outline: 0 solid var(--blue);
+  transition: outline-width .15s;
+}
+
+.spreads a:hover { outline-width: 4px; }
+
+.spreads img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* --- Лайтбокс --- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  cursor: zoom-out;
+}
+
+.lightbox img {
+  max-width: 94vw;
+  max-height: 94vh;
+  display: block;
+  box-shadow: 0 10px 40px rgba(0,0,0,.6);
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 16px;
+  right: 22px;
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 36px;
+  line-height: 1;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 800px) {
+  .site-header { padding: 24px 22px 0; }
+  main { padding: 0 22px 80px; }
+  .nav { font-size: 12px; gap: 12px; }
+  #view-about { padding-top: 60px; }
+  .logo { position: static; width: 200px; max-width: 60%; margin: 0 auto 30px; }
+  .about-title { font-size: 24px; }
+  .issue-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
+  .issue-card h3 { font-size: 15px; }
+  .issue-layout { grid-template-columns: 1fr; gap: 28px; }
+  .issue-body .price, .issue-body .buy, .issue-body .status { font-size: 24px; }
+  .spreads { gap: 10px; }
+  #view-social { padding-top: 18vh; padding-bottom: 10vh; }
+  .social-links li { width: 100%; }
+  .social-links a { width: 100%; font-size: 18px; }
+  .social-contact { margin-left: 0; font-size: 17px; }
+}
