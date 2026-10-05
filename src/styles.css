@@ -125,6 +125,23 @@ main {
   text-align: left;
 }
 
+/* Малозаметная кнопка внизу слева раздела «О нас» */
+.metrika-btn {
+  display: inline-block;
+  margin-top: 90px;
+  padding: 4px 10px;
+  border: 1px solid var(--ink);
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: lowercase;
+  text-decoration: none;
+  opacity: .18;
+  transition: opacity .2s;
+}
+
+.metrika-btn:hover, .metrika-btn:focus { opacity: .7; }
+
 /* Логотип: как в макете, уходит за правый край экрана */
 .logo {
   position: absolute;

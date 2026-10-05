@@ -46,6 +46,10 @@ export default function About() {
           команды. Наш проект некоммерческий. Мы считаем, что искусство и деньги должны пересекаться минимально.
         </p>
       </div>
+
+      <a className="metrika-btn" href="https://metrika.yandex.ru/stat/?id=113418831&from=informer" target="_blank" rel="noopener noreferrer">
+        статистика
+      </a>
     </section>
   );
 }
