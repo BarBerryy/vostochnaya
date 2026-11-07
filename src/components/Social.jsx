@@ -1,6 +1,6 @@
 const LINKS = [
   { label: 'Вконтакте', href: 'https://vk.com/vostochnayaenergya' },
-  { label: 'Телеграм', href: 'https://web.telegram.org/a/#-1001837507348' },
+  { label: 'Телеграм', href: 'https://t.me/vostochnayaenergya' },
 ];
 
 const EMAIL = 'vostochnayaenergya@gmail.com';
